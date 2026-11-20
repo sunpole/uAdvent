@@ -10,7 +10,7 @@ from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PUBLIC = "https://sunpole.github.io/uAdvent/library/"
+PUBLIC = "https://raw.githubusercontent.com/sunpole/uAdvent/main/library/"
 STYLE = """
 :root{color-scheme:dark}body{background:#101b30;color:#eef3f8;font:18px/1.55 system-ui,sans-serif;
 max-width:48rem;margin:auto;padding:1.5rem}a{color:#f3c67b}a:focus-visible{outline:2px solid}
