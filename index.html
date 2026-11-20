@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#101b30">
+  <meta name="description" content="uAdvent — материалы для подготовки детского рождественского адвента. Один проверяемый источник: семидневный план «ДЕТЯМ о РОЖДЕСТВЕ».">
+  <title>uAdvent — детский рождественский адвент</title>
+  <style>
+    :root{--ink:#eef3f8;--muted:#bac6d8;--gold:#f3c67b;--line:rgba(238,243,248,.17);--navy:#101b30;--card:rgba(19,35,56,.79)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(ellipse 72% 38% at 85% 1%,rgba(70,111,143,.25),transparent 80%),radial-gradient(ellipse 45% 45% at 0% 66%,rgba(111,74,85,.14),transparent 80%),var(--navy);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink)}
+    body:before{content:"";position:absolute;top:90px;right:5%;width:min(44vw,500px);height:450px;pointer-events:none;opacity:.25;background-image:radial-gradient(circle,#f7dba5 1px,transparent 1.7px);background-size:52px 47px;mask-image:linear-gradient(90deg,transparent,#000)}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible{outline:3px solid var(--gold);outline-offset:5px;border-radius:4px}
+    .skip{position:absolute;left:12px;top:-100px;background:var(--gold);color:#172033;padding:10px 14px;z-index:4}
+    .skip:focus{top:12px}
+    .wrap{width:min(1140px,calc(100% - 44px));margin:auto;position:relative}
+    header{border-bottom:1px solid var(--line)}
+    .nav{display:flex;justify-content:space-between;align-items:center;min-height:82px;gap:16px}
+    .brand{display:inline-flex;gap:13px;align-items:center;font-weight:800;font-size:1.18rem;letter-spacing:.01em}
+    .mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(243,198,123,.5);border-radius:12px;color:var(--gold);font-size:25px}
+    .navlinks{display:flex;align-items:center;gap:23px;font-size:.9rem;color:var(--muted)}
+    .navlinks a:hover,.textlink:hover{color:var(--gold)}
+    main{padding-bottom:76px}
+    .hero{padding:94px 0 66px;display:grid;grid-template-columns:minmax(0,1.23fr) minmax(290px,.77fr);gap:64px;align-items:center}
+    .eyebrow{letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-size:.74rem;font-weight:750}
+    h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;line-height:1.12;letter-spacing:-.04em;font-size:clamp(3.1rem,7vw,5.7rem);margin:22px 0}
+    h1 em{font-style:normal;color:var(--gold)}
+    .lead{font-size:1.12rem;max-width:600px;color:var(--muted);margin-bottom:29px}
+    .actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .btn{border-radius:8px;background:var(--gold);color:#19243a;padding:12px 21px;font-weight:750;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
+    .btn:hover{background:#ffe0a6}
+    .textlink{color:var(--ink);font-weight:650;border-bottom:1px solid rgba(238,243,248,.3);padding-bottom:4px}
+    .feature{position:relative;background:linear-gradient(140deg,rgba(51,74,94,.93),var(--card) 76%);padding:36px;border:1px solid rgba(243,198,123,.18);border-radius:18px;box-shadow:0 26px 70px rgba(0,0,0,.18)}
+    .feature:before{content:"✳";position:absolute;top:-27px;right:30px;color:var(--gold);font-size:66px;line-height:1}
+    .feature-label{font-size:.73rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:750}
+    .feature h2{font-family:Georgia,"Times New Roman",serif;line-height:1.18;font-size:2.14rem;font-weight:500;margin:18px 0 20px}
+    .meta{color:var(--muted);font-size:.92rem;margin-bottom:25px}
+    .numbers{border-top:1px solid var(--line);padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .number strong{font-size:2.2rem;line-height:1.1;color:var(--gold);display:block;font-weight:550}
+    .number span{font-size:.83rem;color:var(--muted)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:38px 0 22px}
+    h2.section-title{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.1rem,4vw,3rem);font-weight:500;line-height:1.2;letter-spacing:-.02em;margin:9px 0 0}
+    .intro{color:var(--muted);max-width:500px;font-size:.92rem;margin:0}
+    .days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+    .day{display:flex;min-height:150px;flex-direction:column;justify-content:space-between;padding:20px 20px 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;transition:border-color .2s,transform .2s}
+    .day:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .day small{font-weight:750;letter-spacing:.1em;color:var(--gold);text-transform:uppercase}
+    .day strong{font-size:1.02rem;font-weight:620;line-height:1.4}
+    .day span{align-self:flex-end;font-size:1.35rem;color:var(--gold)}
+    .note{display:grid;grid-template-columns:1fr auto;gap:25px;align-items:center;background:rgba(243,198,123,.08);border:1px solid rgba(243,198,123,.24);border-radius:14px;margin:38px 0 0;padding:26px 30px}
+    .note h3{margin:0 0 5px;font-size:1.05rem}
+    .note p{margin:0;color:var(--muted);font-size:.93rem;max-width:690px}
+    .note a{color:var(--gold);text-decoration:underline;text-underline-offset:4px}
+    footer{border-top:1px solid var(--line);padding:27px 0 42px;color:var(--muted);font-size:.82rem}
+    .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .foot a{color:var(--gold)}
+    @media(max-width:890px){.hero{grid-template-columns:1fr;gap:28px;padding:68px 0 40px}.feature{max-width:630px}.days{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:550px){.wrap{width:min(100% - 32px,1140px)}.nav{min-height:70px}.navlinks{gap:13px;font-size:.8rem}.navlinks a:first-child{display:none}.hero{padding-top:53px}.feature{padding:27px}.days{grid-template-columns:1fr 1fr;gap:9px}.day{min-height:138px;padding:15px}.section-head{display:block}.intro{margin-top:14px}.note{grid-template-columns:1fr;padding:23px}h1{font-size:3.3rem}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.day{transition:none}.day:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">К содержимому</a>
+  <header>
+    <nav class="wrap nav" aria-label="Главная навигация">
+      <a class="brand" href="./" aria-label="uAdvent — главная"><span class="mark" aria-hidden="true">✳</span>uAdvent</a>
+      <div class="navlinks"><a href="#days">Материалы</a><a href="https://github.com/sunpole/uAdvent">GitHub</a><a href="README.md">О проекте</a></div>
+    </nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Рождественский адвент · Материалы</div>
+        <h1 id="hero-title">История Рождества.<br><em>Для детей.</em></h1>
+        <p class="lead">uAdvent — рабочее собрание материалов для подготовки детской рождественской программы. Сейчас доступен один исходный план чтения на семь дней.</p>
+        <div class="actions">
+          <a class="btn" href="#days">Посмотреть материалы <span aria-hidden="true">↗</span></a>
+          <a class="textlink" href="https://www.bible.com/ru/reading-plans/29132-detiam-o-rozhdestve">Оригинал плана на YouVersion</a>
+        </div>
+      </div>
+      <aside class="feature" aria-label="Доступный план">
+        <div class="feature-label">План 001 · Исходный материал</div>
+        <h2>ДЕТЯМ о РОЖДЕСТВЕ</h2>
+        <p class="meta">Источник: YouVersion. Поставщик плана: ARI-M (Андреев Руслан и Ирина — Министерство).</p>
+        <div class="numbers">
+          <div class="number"><strong>01</strong><span>план в репозитории</span></div>
+          <div class="number"><strong>07</strong><span>дней чтения</span></div>
+        </div>
+      </aside>
+    </section>
+    <section id="days" aria-labelledby="days-title">
+      <div class="section-head"><div><div class="eyebrow">Библиотека материалов</div><h2 class="section-title" id="days-title">Семь дней — один план</h2></div><p class="intro">Ссылки открывают исходные Markdown-файлы в репозитории. Это не готовые занятия и не отдельное приложение.</p></div>
+      <div class="days">
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0002.md"><small>День 01</small><strong>Смысл Рождества</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0003.md"><small>День 02</small><strong>Зачем пришёл Иисус</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0004.md"><small>День 03</small><strong>История Рождества</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0005.md"><small>День 04</small><strong>Уроки рождественской истории</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0006.md"><small>День 05</small><strong>Радость рождения</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0007.md"><small>День 06</small><strong>Божья защита</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0008.md"><small>День 07</small><strong>Забота о необходимом</strong><span aria-hidden="true">↗</span></a>
+        <a class="day" href="https://github.com/sunpole/uAdvent/blob/main/data/001/001_0001.md"><small>О плане</small><strong>Описание и указание источника</strong><span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="note">
+        <div><h3>О происхождении материалов</h3><p>Содержимое плана принадлежит соответствующим правообладателям. Лицензия MIT репозитория не распространяет автоматически права на тексты сторонних авторов. Перед повторным использованием ознакомьтесь со сведениями об источнике.</p></div>
+        <a href="THIRD_PARTY_NOTICES.md">Источники и права ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span>uAdvent · Рабочий репозиторий материалов, неофициальная страница</span><span><a href="https://github.com/sunpole/uAdvent">Исходные файлы на GitHub</a> · <a href="LICENSE">MIT License</a></span></div></footer>
+</body>
+</html>
